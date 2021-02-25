@@ -6,4 +6,5 @@ interface MainPresenter {
     fun addData(note: Note)
     fun removeData(index: Int)
     fun getData()
+    fun updateData(note : Note)
 }

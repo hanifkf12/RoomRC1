@@ -18,7 +18,10 @@ class MainPresenterImp(private val view: MainView, private val noteDao: NoteDao)
     }
 
     override fun removeData(index: Int) {
-
+        GlobalScope.launch {
+            noteDao.deleteNote(index)
+            getData()
+        }
     }
 
     override fun getData() {
@@ -26,6 +29,14 @@ class MainPresenterImp(private val view: MainView, private val noteDao: NoteDao)
         GlobalScope.launch {
             val notes = noteDao.getNotes()
             view.showData(notes)
+            view.hideLoading()
+        }
+    }
+
+    override fun updateData(note: Note) {
+        GlobalScope.launch {
+            noteDao.updateNote(note)
+            getData()
         }
     }
 
