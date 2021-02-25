@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hanifkf12.myrecyclerapp1.adapter.MyAdapter
 import com.hanifkf12.myrecyclerapp1.util.MySharedPref
 import com.hanifkf12.myrecyclerapp1.model.Note
@@ -35,8 +36,8 @@ class MainActivity : AppCompatActivity(), MainView {
             Toast.makeText(this, it.title, Toast.LENGTH_SHORT).show()
         }
 
-//        binding.rvNote.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.rvNote.layoutManager = GridLayoutManager(this, 2)
+        binding.rvNote.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+//        binding.rvNote.layoutManager = GridLayoutManager(this, 2)
         binding.rvNote.adapter = adapter
 
         binding.floatingActionButton.setOnClickListener {
